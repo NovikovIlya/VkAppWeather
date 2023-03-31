@@ -1,4 +1,36 @@
 .container{
     margin: 0 auto;
     width: 1130px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.hightText{
+    width: 100%;
+    text-align: center;
+}
+
+.btnGorod{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btnVyborGorod{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recomndationPogogda{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recomndationOdezhda{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
