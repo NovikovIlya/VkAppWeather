@@ -1,8 +1,17 @@
+.vkui--sizeX-none {
+    background-color: white;
+}
+
+.App{
+    background-color: white;
+}
+
 .container{
     margin: 0 auto;
     width: 1130px;
     display:flex;
     flex-wrap: wrap;
+    /* width: 100%; */
 }
 
 .hightText{
@@ -39,4 +48,99 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    color: black
+}
+.liStyle{
+    list-style-type: none;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+.h2Style{
+    text-align: center;
+}
+
+.ulStyle{
+    /* background-color: black; */
+    width: 100%;
+    display:flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    padding: 0;
+    bottom: 120px;
+   
+    animation-timing-function:linear;
+    
+    animation-iteration-count: infinite;
+    animation-duration: 20s ;
+    animation-name: anima;
+    
+}
+.ulStyle:hover{
+    animation-play-state: paused
+}
+/* @keyframes anima{
+    from{
+        margin-left: 0%;
+    }
+    to{
+        margin-left: 100%;
+    }
+} */
+
+.liStyle{
+   margin-right: 5px;
+   height: 232px;
+    
+}
+.h2Style,.hightText{
+    color: black;
+}
+.svgStyle{
+    border-radius: 20px;
+    height: 300px;
+    width: 187px;
+}
+.imageBigParent{
+    display:flex;
+    justify-content: center;
+}
+.clothes{
+    width: 100%
+}
+.slider-container{
+    width: 50% !important;
+}
+.slider-frame{
+    width: 31% !important;
+}
+.slide-current{
+    display: flex;
+    justify-content: center;
+}
+.slider-container{
+    display: flex !important;
+    justify-content: center  !important;
+}
+
+@media screen and (max-width: 600px) {
+    .h2Style{
+        font-size: 15px;
+    }
+    .imageBig{
+        width: 250px;
+    }
+    .clothes{
+        width: 100%;
+    }
+    .slider-container{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .slider-frame{
+        width: 100% !important;
+    }
 }

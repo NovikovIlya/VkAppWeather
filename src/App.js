@@ -30,9 +30,9 @@ const App = () => {
 				<AppRoot>
 					<SplitLayout >
 						<SplitCol>
-							
-								<Home  />
-
+							<View activePanel={activePanel}>
+								<Home  id='home'  />
+							</View>
 							
 						</SplitCol>
 					</SplitLayout>

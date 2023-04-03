@@ -11,7 +11,7 @@ function Home(){
       <BrowserRouter>
         <Routes>
          <Route path='/' element={ <Main/>} />
-         <Route path='/:id' element={ <City/>} />
+         {/* <Route path='/:id' element={ <City/>} /> */}
          <Route path='/tomorrow' element={ <Tomorrow/>} />
          <Route path='*' element={<div>Не найдено</div>} />
         </Routes> 

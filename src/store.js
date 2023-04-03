@@ -10,9 +10,13 @@ export const useTodos = create(set =>({
     error: null,
     addTodo:(title)=>set(state=>{
         const newTodo = {id:nanoid(), title, coompleted:false}
-
         return {todos: [...state.todos,newTodo]}
 
     }),
     massiv: [1,2,3,4]
+}))
+
+export const useFilter = create(set =>({
+    filter: 'all',
+    setFilter: (value)=> set({filter:value})
 }))

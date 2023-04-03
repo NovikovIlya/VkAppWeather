@@ -7,7 +7,11 @@ const tomorrow = () => {
 
 
   return (
-    <div>tomorrow</div>
+    <div>
+      <div>tomorrow</div>
+      <div>{cifri}</div>
+    </div>
+    
   )
 }
 

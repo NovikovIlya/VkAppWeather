@@ -1,11 +1,12 @@
 import {useParams} from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import './../Home.css'
+import vesna from './../../../src/vesna.gif'
+import winter from './../../../src/winter.gif'
+import Carousel from 'nuka-carousel/lib/carousel';
 
 
-
-
-const City = ({weather,citiz,clothes,desc,feel,city}) => {
+const City = ({weather,citiz,clothes,desc,feel,city,odezhda}) => {
 
   
 
@@ -24,14 +25,30 @@ const City = ({weather,citiz,clothes,desc,feel,city}) => {
 
 
             <div className='recomndationOdezhda'>
-            {clothes.length > 0 ? (
+            {odezhda.length > 0 ? (
               <div className="clothes">
-                <h2>Рекомендации по одежде:</h2>
-                <ul>
-                  {clothes.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                
+                <div className='imageBigParent'>
+                  {weather < 10? <img className='imageBig' src={vesna}/> : ''}
+                  {weather < 0? <img src={winter}/> : ''}
+                
+                </div>
+                <h2 className='h2Style'>Рекомендации по одежде:</h2>
+                <ul className='ulStyle'>
+                <Carousel animation={["zoom"]}
+                defaultControlsConfig={{
+                  nextButtonText: '→',
+                  prevButtonText: '←'
+                  }}>
+                    {/* {clothes.map((item) => (
+                      <li key={item} className='liStyle'>{item}</li>
+                    ))} */}
+                    {odezhda.map((item) => (
+                      <img key={item} className='svgStyle' src={item}/>
+                    ))}
+                </Carousel>
+                  </ul>
+               
               </div>
             ): ''}
             </div>
