@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/VkAppWeather/static/css/main.64dc86ed.css",
+    "main.js": "/VkAppWeather/static/js/main.7a1f6e61.js",
+    "static/media/winter.gif": "/VkAppWeather/static/media/winter.0695fb799ca2738a3a77.gif",
+    "static/media/vesna.gif": "/VkAppWeather/static/media/vesna.e119d71b23941aca8313.gif",
+    "static/media/голубая-короткая-шуба-темно-серый-свитер-с-хомутом-голубые-джинсы-large-42885.webp": "/VkAppWeather/static/media/голубая-короткая-шуба-темно-серый-свитер-с-хомутом-голубые-джинсы-large-42885.49792ca1b146951d4479.webp",
+    "static/media/темно-красное-пальто-без-рукавов-разноцветная-блузка-с-длинным-рукавом-темно-синие-брюки-кюлоты-large-42680.webp": "/VkAppWeather/static/media/темно-красное-пальто-без-рукавов-разноцветная-блузка-с-длинным-рукавом-темно-синие-брюки-кюлоты-large-42680.7c4a3cba742fb12450a5.webp",
+    "static/media/пальто-водолазка-классические-брюки-large-34230.webp": "/VkAppWeather/static/media/пальто-водолазка-классические-брюки-large-34230.18a4f5d038a3f429b907.webp",
+    "static/media/persik.png": "/VkAppWeather/static/media/persik.ae9f00727841e011ac15.png",
+    "static/media/rain-boots.svg": "/VkAppWeather/static/media/rain-boots.c964fa94fd925e22dc26fe372fdcd202.svg",
+    "static/media/jacket.svg": "/VkAppWeather/static/media/jacket.2e482bbfc1f527c7f1fd67e57aa14fcc.svg",
+    "static/media/sweater.svg": "/VkAppWeather/static/media/sweater.3060560d953cfc767bd7bc8c9ae7ff2a.svg",
+    "static/media/jeans (1).svg": "/VkAppWeather/static/media/jeans (1).4baa0c21718f9630142aaa731197bdeb.svg",
+    "index.html": "/VkAppWeather/index.html",
+    "main.64dc86ed.css.map": "/VkAppWeather/static/css/main.64dc86ed.css.map",
+    "main.7a1f6e61.js.map": "/VkAppWeather/static/js/main.7a1f6e61.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64dc86ed.css",
+    "static/js/main.7a1f6e61.js"
+  ]
+}
