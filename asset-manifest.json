@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/VkAppWeather/static/css/main.64dc86ed.css",
-    "main.js": "/VkAppWeather/static/js/main.5b196b7e.js",
+    "main.css": "/VkAppWeather/static/css/main.4211d1ee.css",
+    "main.js": "/VkAppWeather/static/js/main.707e5a2f.js",
+    "static/media/Fall.gif": "/VkAppWeather/static/media/Fall.590a695f8c79e66a8db5.gif",
+    "static/media/Refreshing.gif": "/VkAppWeather/static/media/Refreshing.2495ff11588683cb9e78.gif",
     "static/media/winter.gif": "/VkAppWeather/static/media/winter.0695fb799ca2738a3a77.gif",
     "static/media/vesna.gif": "/VkAppWeather/static/media/vesna.e119d71b23941aca8313.gif",
     "static/media/голубая-короткая-шуба-темно-серый-свитер-с-хомутом-голубые-джинсы-large-42885.webp": "/VkAppWeather/static/media/голубая-короткая-шуба-темно-серый-свитер-с-хомутом-голубые-джинсы-large-42885.49792ca1b146951d4479.webp",
@@ -13,11 +15,11 @@
     "static/media/sweater.svg": "/VkAppWeather/static/media/sweater.3060560d953cfc767bd7bc8c9ae7ff2a.svg",
     "static/media/jeans (1).svg": "/VkAppWeather/static/media/jeans (1).4baa0c21718f9630142aaa731197bdeb.svg",
     "index.html": "/VkAppWeather/index.html",
-    "main.64dc86ed.css.map": "/VkAppWeather/static/css/main.64dc86ed.css.map",
-    "main.5b196b7e.js.map": "/VkAppWeather/static/js/main.5b196b7e.js.map"
+    "main.4211d1ee.css.map": "/VkAppWeather/static/css/main.4211d1ee.css.map",
+    "main.707e5a2f.js.map": "/VkAppWeather/static/js/main.707e5a2f.js.map"
   },
   "entrypoints": [
-    "static/css/main.64dc86ed.css",
-    "static/js/main.5b196b7e.js"
+    "static/css/main.4211d1ee.css",
+    "static/js/main.707e5a2f.js"
   ]
 }
