@@ -1,22 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import './Home.css'
-import { BrowserRouter,Route ,Routes,Link} from 'react-router-dom';
-import Main from './pages/Main'
-import City from './pages/City'
+import React, { useState, useEffect, useContext } from 'react';
+import { HashRouter ,Route,Routes } from 'react-router-dom';
 import Tomorrow from './pages/tomorrow';
+import './Home.css'
+
+import Main from './pages/Main'
+
 
 function Home(){
+  
+
+  const [privet,setPrivet] = useState('zdarova')
+
   return (
-    <div className="App">
-      <BrowserRouter>
+    
+      <div className="App">
+      <HashRouter >
         <Routes>
          <Route path='/' element={ <Main/>} />
-         {/* <Route path='/:id' element={ <City/>} /> */}
+        
          <Route path='/tomorrow' element={ <Tomorrow/>} />
-         <Route path='*' element={<div>Не найдено</div>} />
+         
         </Routes> 
-      </BrowserRouter>
+      </HashRouter>
+      {/* <Main/> */}
     </div>
+    
+    
       
   );
 }

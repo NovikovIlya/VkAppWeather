@@ -19,7 +19,9 @@
     text-align: center;
 }
 
+
 .btnGorod{
+    margin-top: 10px;
     width: 100%;
     justify-content: center;
     display: flex;
@@ -42,6 +44,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.netGororda{
+    color:black;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .wh{
@@ -122,6 +129,55 @@
 .slider-container{
     display: flex !important;
     justify-content: center  !important;
+}
+.slider-control-bottomcenter{
+    display: none;
+}
+.btnZavtra{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.head{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    border-radius: 10px;
+    padding:10px;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+.head2{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+.body2{
+    width: 100%;
+    border-radius: 90px;
+    
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+
+}
+.cityStyle{
+    background-color: navajowhite;
+}
+.wearCurrent{
+    background-color: papayawhip;
+}
+.wearPrimerno{
+    background-color: palegoldenrod;
+}
+.wearDesc{
+    background-color: mistyrose;
+}
+
+.pogodaNaZavtra{
+    text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
