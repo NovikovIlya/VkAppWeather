@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/VkAppWeather/static/css/main.1cbb15e5.css",
-    "main.js": "/VkAppWeather/static/js/main.275b6eb6.js",
+    "main.css": "/VkAppWeather/static/css/main.841c622e.css",
+    "main.js": "/VkAppWeather/static/js/main.ab7fb258.js",
     "static/media/Fall.gif": "/VkAppWeather/static/media/Fall.590a695f8c79e66a8db5.gif",
     "static/media/Refreshing.gif": "/VkAppWeather/static/media/Refreshing.2495ff11588683cb9e78.gif",
     "static/media/winter.gif": "/VkAppWeather/static/media/winter.0695fb799ca2738a3a77.gif",
@@ -15,11 +15,11 @@
     "static/media/sweater.svg": "/VkAppWeather/static/media/sweater.3060560d953cfc767bd7bc8c9ae7ff2a.svg",
     "static/media/jeans (1).svg": "/VkAppWeather/static/media/jeans (1).4baa0c21718f9630142aaa731197bdeb.svg",
     "index.html": "/VkAppWeather/index.html",
-    "main.1cbb15e5.css.map": "/VkAppWeather/static/css/main.1cbb15e5.css.map",
-    "main.275b6eb6.js.map": "/VkAppWeather/static/js/main.275b6eb6.js.map"
+    "main.841c622e.css.map": "/VkAppWeather/static/css/main.841c622e.css.map",
+    "main.ab7fb258.js.map": "/VkAppWeather/static/js/main.ab7fb258.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cbb15e5.css",
-    "static/js/main.275b6eb6.js"
+    "static/css/main.841c622e.css",
+    "static/js/main.ab7fb258.js"
   ]
 }
