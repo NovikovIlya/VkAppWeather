@@ -12,17 +12,17 @@ import Carousel from 'nuka-carousel/lib/carousel';
 
 const City = ({weather,citiz,clothes,desc,feel,city,odezhda}) => {
 
-  
+  let feel2 = Math.round(feel)
 
   const {id}= useParams()
   return (
     <>
             <div className='wh cityStyle'>{city? city : ''}</div>
             <div className='wh wearCurrent'>
-             <div>{weather? weather : ''}</div>
+             <div>{weather? Math.round(weather) + "°C": ''}</div>
             </div>
             <div className='wh wearPrimerno'>
-              {feel? <div>Ощущается как: {feel}</div>  : ''}
+              {feel? <div>Ощущается как: {feel2} °C</div>  : ''}
             </div>
             <div className='wh wearDesc'>{desc? desc : ''}</div>
 

@@ -6,6 +6,9 @@ import City from './City'
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material'
 
+const API_KEY = 'd98cd3476cb035d53bab5f6271750206';
+const API_URL = 'https://api.openweathermap.org/data/2.5/weather?q=';
+
 const tomorrow = () => {
   const [location, setLocation] = useState({});
   const [scrytZagrysky,setScrytZagrysky] = useState(false)
@@ -21,14 +24,34 @@ const tomorrow = () => {
   const [city,setCity] = useState()
   const [netgoroda,setNetgoroda] = useState(false)
 
+  // useEffect(() => {
+  //   let data = JSON.parse(window.localStorage.getItem('dataKey'));
+  //   setWeather(data[0].weather)
+  //   getRecommendations(data[0])
+  //   setDesc(data[0].condition)
+  //   setFeel(data[0].feeling)
+  //   setCity(data[0].city)
+  //   setIsLoading(false)
+  // }, []);
   useEffect(() => {
-    let data = JSON.parse(window.localStorage.getItem('dataKey'));
-    setWeather(data[0].weather)
-    getRecommendations(data[0])
-    setDesc(data[0].condition)
-    setFeel(data[0].feeling)
-    setCity(data[0].city)
-    setIsLoading(false)
+    
+      let data01 = JSON.parse(window.localStorage.getItem('dataKey'));
+      let city = data01.name;
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=ru`)
+      .then((response) => response.json())
+      .then((data) => {
+        setWeather(data.list[4].main.temp)
+        console.log(data.list[4].main.temp);
+
+         getRecommendations(data.list[4])
+         setDesc(data.list[4].weather[0].description)
+         setFeel(data.list[4].main.feels_like)
+         setCity(data.city.name)
+       setIsLoading(false)
+       localStorage.setItem('dataKey1', JSON.stringify(data))
+       return data;
+      })
+    
   }, []);
 
   function geo(){
@@ -40,50 +63,85 @@ const tomorrow = () => {
       });
     });
    }
-
-   async function otpravka(city){
-    fetch(`https://atoma-weather.onrender.com/weather/city/?api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9&city=${city}`)
-   .then((response) => response.json())
-   .then((data) => {
-     if(data.status === '404'){
-       console.log('Ошибока');
-       setNetgoroda(true)
-       setIsLoading(false)
-     }
-    console.log(data)
-    console.log(data[0].weather)
-   setWeather(data[0].weather)
-    getRecommendations(data[0])
-    setDesc(data[0].condition)
-    setFeel(data[0].feeling)
-    setCity(data[0].city)
-    setIsLoading(false)
-    setNetgoroda(false)
-    localStorage.setItem('dataKey', JSON.stringify(data))
-    });
-   }
-
-   useEffect(() => {
+  //  Ромина идея
+  //  async function otpravka(city){
+  //   fetch(`https://atoma-weather.onrender.com/weather/city/?api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9&city=${city}`)
+  //  .then((response) => response.json())
+  //  .then((data) => {
+  //    if(data.status === '404'){
+  //      console.log('Ошибока');
+  //      setNetgoroda(true)
+  //      setIsLoading(false)
+  //    }
+  //   console.log(data)
+  //   console.log(data[0].weather)
+  //  setWeather(data[0].weather)
+  //   getRecommendations(data[0])
+  //   setDesc(data[0].condition)
+  //   setFeel(data[0].feeling)
+  //   setCity(data[0].city)
+  //   setIsLoading(false)
+  //   setNetgoroda(false)
+  //   localStorage.setItem('dataKey', JSON.stringify(data))
+  //   });
+  //  }
+  useEffect(() => {
     if (location.latitude && location.longitude) {
-        fetch(`https://atoma-weather.onrender.com/weather/now/?latitude=${location.latitude}&longitude=${location.longitude}&api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9`)
-      .then((response) => response.json())
-      .then((data) => {
-       console.log(data)
-       console.log(data[0].weather)
-      setWeather(data[0].weather)
-       getRecommendations(data[0])
-       setDesc(data[0].condition)
-       setFeel(data[0].feeling)
-       setCity(data[0].city)
-       setIsLoading(false)
-       localStorage.setItem('dataKey', JSON.stringify(data))
-       return data;
-   });
-  }
-}, [location]);
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}&units=metric&lang=ru`)
+        .then((response) => response.json())
+        .then((data) => {
+           console.log(data)
+            
+           setWeather(data.list[4].main.temp)
+           console.log(data.list[4].main.temp);
+           
+            getRecommendations(data.list[4])
+            setDesc(data.list[4].weather[0].description)
+            setFeel(data.list[4].main.feels_like)
+            setCity(data.city.name)
+            setIsLoading(false)
+            localStorage.setItem('dataKey1', JSON.stringify(data))
+            return data;
+        });
+    }
+  }, [location]);
+
+//    useEffect(() => {
+//     if (location.latitude && location.longitude) {
+//         fetch(`https://atoma-weather.onrender.com/weather/now/?latitude=${location.latitude}&longitude=${location.longitude}&api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9`)
+//       .then((response) => response.json())
+//       .then((data) => {
+//        console.log(data)
+//        console.log(data[0].weather)
+//       setWeather(data[0].weather)
+//        getRecommendations(data[0])
+//        setDesc(data[0].condition)
+//        setFeel(data[0].feeling)
+//        setCity(data[0].city)
+//        setIsLoading(false)
+//        localStorage.setItem('dataKey', JSON.stringify(data))
+//        return data;
+//    });
+//   }
+// }, [location]);
+async function otpravka(city){
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=ru`)
+ .then((response) => response.json())
+ .then((data) => {
+  setWeather(data.main.temp)
+  getRecommendations(data)
+  setDesc(data.weather[0].description)
+  setFeel(data.main.feels_like)
+  setCity(data.name)
+  setIsLoading(false)
+  localStorage.setItem('dataKey1', JSON.stringify(data))
+  return data;
+});
+}
 
 const getRecommendations = (data) => {
-  let temp = data.weather;
+  // let temp = data.weather;
+  let temp = data.main.temp;
   setTemp(temp)
   let desc = data.condition;
 
@@ -180,10 +238,10 @@ const getRecommendations = (data) => {
 
   return (
     <div className='container'>
-       <Header geo={geo} polet={polet} query1={query1} />
+       {/* <Header geo={geo} polet={polet} query1={query1} /> */}
        <div className='btnZavtra'>
          <Button variant="contained">
-          <Link to='/'>Погода сейчас</Link>
+          <Link className='pogodaNaZavtra' to='/'>Погода сейчас</Link>
         </Button>
        </div>
 

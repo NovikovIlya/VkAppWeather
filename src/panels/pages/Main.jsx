@@ -26,7 +26,7 @@ function Main() {
   const [weather, setWeather] = useState();
   const [clothes, setClothes] = useState([]);
   const [citiz,setCitiz] = useState([])
-  const [desc,setDesc] = useState()
+  const [desc,setDesc] = useState('')
   const [feel,setFeel] = useState()
   const [city,setCity] = useState()
   const [isLoading1,setIsLoading] = useState(true)
@@ -35,14 +35,26 @@ function Main() {
   const [odezhda,setOdezhda] = useState([])
   const [netgoroda,setNetgoroda] = useState(false)
 
+  // useEffect(() => {
+  //   if (localStorage.getItem("key")!= null){
+  //     let data = JSON.parse(window.localStorage.getItem('dataKey'));
+  //     setWeather(data[0].weather)
+  //     getRecommendations(data[0])
+  //     setDesc(data[0].condition)
+  //     setFeel(data[0].feeling)
+  //     setCity(data[0].city)
+  //     setIsLoading(false)
+  //   }
+  // }, []);
   useEffect(() => {
-    if (localStorage.getItem("key")!= null){
+    if (localStorage.getItem("dataKey")!= null){
       let data = JSON.parse(window.localStorage.getItem('dataKey'));
-      setWeather(data[0].weather)
-      getRecommendations(data[0])
-      setDesc(data[0].condition)
-      setFeel(data[0].feeling)
-      setCity(data[0].city)
+      setWeather(data.main.temp)
+      getRecommendations(data)
+      setDesc(data.weather.main)
+      setFeel(data.main.feels_like)
+      setCity(data.name)
+      setDesc(data.weather[0].description)
       setIsLoading(false)
     }
   }, []);
@@ -58,28 +70,18 @@ function Main() {
       });
     });
    }
-//    useEffect(() => {
-//     if (location.latitude && location.longitude) {
-//       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}&units=metric`)
-//         .then((response) => response.json())
-//         .then((data) => {
-//           setWeather(data)
-//           getRecommendations(data)
-//         });
-//     }
-//   }, [location]);
-         useEffect(() => {
-         if (location.latitude && location.longitude) {
-             fetch(`https://atoma-weather.onrender.com/weather/now/?latitude=${location.latitude}&longitude=${location.longitude}&api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9`)
-           .then((response) => response.json())
-           .then((data) => {
-            console.log(data)
-            console.log(data[0].weather)
-           setWeather(data[0].weather)
-            getRecommendations(data[0])
-            setDesc(data[0].condition)
-            setFeel(data[0].feeling)
-            setCity(data[0].city)
+   useEffect(() => {
+    if (location.latitude && location.longitude) {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${API_KEY}&units=metric&lang=ru`)
+        .then((response) => response.json())
+        .then((data) => {
+           console.log(data)
+            console.log(data.main.temp)
+           setWeather(data.main.temp)
+            getRecommendations(data)
+            setDesc(data.weather[0].description)
+            setFeel(data.main.feels_like)
+            setCity(data.name)
             setIsLoading(false)
             localStorage.setItem('dataKey', JSON.stringify(data))
             return data;
@@ -87,29 +89,62 @@ function Main() {
     }
   }, [location]);
 
+  //  РОМИНА ИДЕЯ
+  //        useEffect(() => {
+  //        if (location.latitude && location.longitude) {
+  //            fetch(`https://atoma-weather.onrender.com/weather/now/?latitude=${location.latitude}&longitude=${location.longitude}&api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9`)
+  //          .then((response) => response.json())
+  //          .then((data) => {
+  //           console.log(data)
+  //           console.log(data[0].weather)
+  //          setWeather(data[0].weather)
+  //           getRecommendations(data[0])
+  //           setDesc(data[0].condition)
+  //           setFeel(data[0].feeling)
+  //           setCity(data[0].city)
+  //           setIsLoading(false)
+  //           localStorage.setItem('dataKey', JSON.stringify(data))
+  //           return data;
+  //       });
+  //   }
+  // }, [location]);
+
+  // РОМИНА ИДЕЯ ОТПРАВКА ГОРОДА
+  // async function otpravka(city){
+  //      fetch(`https://atoma-weather.onrender.com/weather/city/?api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9&city=${city}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if(data.status === '404'){
+  //         console.log('Ошибока');
+  //         setNetgoroda(true)
+  //         setIsLoading(false)
+  //       }
+  //      console.log(data)
+  //      console.log(data[0].weather)
+  //     setWeather(data[0].weather)
+  //      getRecommendations(data[0])
+  //      setDesc(data[0].condition)
+  //      setFeel(data[0].feeling)
+  //      setCity(data[0].city)
+  //      setIsLoading(false)
+  //      setNetgoroda(false)
+  //      localStorage.setItem('dataKey', JSON.stringify(data))
+  //  });
+  // }
   async function otpravka(city){
-       fetch(`https://atoma-weather.onrender.com/weather/city/?api_key=1I2L3U4K5H6A7E8T9O0D1L2Y3A4T5E6B7Y8A9&city=${city}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if(data.status === '404'){
-          console.log('Ошибока');
-          setNetgoroda(true)
-          setIsLoading(false)
-        }
-       console.log(data)
-       console.log(data[0].weather)
-      setWeather(data[0].weather)
-       getRecommendations(data[0])
-       setDesc(data[0].condition)
-       setFeel(data[0].feeling)
-       setCity(data[0].city)
-       setIsLoading(false)
-       setNetgoroda(false)
-       localStorage.setItem('dataKey', JSON.stringify(data))
-
-
-   });
-  }
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&lang=ru&units=metric`)
+   .then((response) => response.json())
+   .then((data) => {
+    setWeather(data.main.temp)
+    getRecommendations(data)
+    setDesc(data.weather[0].description)
+    setFeel(data.main.feels_like)
+    setCity(data.name)
+    setIsLoading(false)
+    localStorage.setItem('dataKey', JSON.stringify(data))
+    return data;
+});
+}
   
 
   
@@ -125,9 +160,10 @@ function Main() {
   };
 
   const getRecommendations = (data) => {
-    let temp = data.weather;
+    // let temp = data.weather;
+    let temp = data.main.temp;
     setTemp(temp)
-    let desc = data.condition;
+    // let desc = data.condition;
 
     let clothesArr = [];
 
