@@ -167,7 +167,7 @@ function Main() {
 
     let clothesArr = [];
 
-    if (temp < 0) {
+    if (temp <= 0) {
       async function send(){
         let response = await fetch('https://api.unsplash.com/search/photos?query=winter%20fashion&client_id=kW741H2E_EGpTnjeNNm4_CczBL3V12Wud_S1GOAyGzo'); // завершается с заголовками ответа
         let result = await response.json() 
